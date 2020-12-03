@@ -40,8 +40,8 @@ if (!$result){
 //Always define the array to prevent error.
 $fileArray = [0 => ["","","",""]]; 
 $row= 0; // this is for the outer part of the array 
-	
-$fh = fopen("./file/owner.txt", 'r'); //open the file and read form it. 
+
+$fh = fopen("../file/owner.txt", 'r'); //open the file and read form it. 
 
 if($fh){
 //Use the while loop to read till the end of the file 

@@ -43,7 +43,7 @@ if (!$result){
 $fileArray = [0 => ["","","",""]]; 
 $row= 0; // this is for the outer part of the array 
 	
-$fh = fopen("./file/business.txt", 'r'); //open the file and read form it. 
+$fh = fopen("../file/business.txt", 'r'); //open the file and read form it. 
 
 //Use the while loop to read till the end of the file 
 while(!feof($fh)){
