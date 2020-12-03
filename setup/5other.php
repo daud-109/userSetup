@@ -31,9 +31,10 @@ $query = "CREATE TABLE IF NOT EXISTS review (
   id INT NOT NULL AUTO_INCREMENT,
   business_id INT NOT NULL,
   patron_id INT NOT NULL,
-  mask_rate INT NOT NULL,
+  mask_rating INT NOT NULL,
   social_distance_rating INT NOT NULL,
   sanitize_rating INT NOT NULL,
+  comment VARCHAR(200) NOT NULL,
   PRIMARY KEY(id),
   FOREIGN KEY(business_id) REFERENCES business (id),
   FOREIGN KEY(patron_id) REFERENCES Patron (id))";
