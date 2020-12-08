@@ -29,6 +29,7 @@ $query = "CREATE TABLE IF NOT EXISTS business(
   town VARCHAR(50) NOT NULL,
   zip VARCHAR(5) NOT NULL,
   county VARCHAR(50) NOT NULL,
+  alert BOOLEAN,
   PRIMARY KEY (id),
   FOREIGN KEY(owner_id) REFERENCES business_owner (id))";
 
@@ -68,9 +69,9 @@ fclose($fh); //make sure to close the file
 //The loop will help with insert data into mysql database. 
 for ($row=0; $row<sizeof($fileArray); ++$row){
 		
-	$stmt = $conn->prepare('INSERT INTO business VALUES(?,?,?,?,?,?,?,?,?,?,?)');
+	$stmt = $conn->prepare('INSERT INTO business VALUES(?,?,?,?,?,?,?,?,?,?,?,?)');
 		
-  $stmt->bind_param('iisssssssss', $id, $owner_id, $business_name, $business_type, $business_email, $business_phone, $description, $street, $town, $zip, $county);
+  $stmt->bind_param('iisssssssssi', $id, $owner_id, $business_name, $business_type, $business_email, $business_phone, $description, $street, $town, $zip, $county, $alert);
   
     $id = NULL;
 	  $owner_id = $fileArray[$row][0];;
@@ -82,7 +83,8 @@ for ($row=0; $row<sizeof($fileArray); ++$row){
     $street = $fileArray[$row][6];
 		$town = $fileArray[$row][7];
 		$zip = $fileArray[$row][8];
-		$county = $fileArray[$row][9];
+    $county = $fileArray[$row][9];
+    $alert = 0;
 		
 	$stmt->execute(); //execute
 

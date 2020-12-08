@@ -14,7 +14,7 @@ $query = "CREATE TABLE IF NOT EXISTS notification (
   id INT NOT NULL AUTO_INCREMENT,
   business_id INT NOT NULL,
   patron_id INT NOT NULL,
-  notification_date VARCHAR(20) NOT NULL,
+  positive_Date VARCHAR(20) NOT NULL,
   PRIMARY KEY(id),
   FOREIGN KEY(business_id) REFERENCES business (id),
   FOREIGN KEY(patron_id) REFERENCES Patron (id))";
